@@ -1,0 +1,67 @@
+
+@model wt_lab4_4mvc_talashkevich.Models.MemberCreateViewModel
+
+@{
+    ViewData["Title"] = "Добавить участника";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow rounded-3">
+                <div class="card-body p-4">
+                    <h1 class="fw-bold mb-4">Добавить участника</h1>
+
+                    <form asp-controller="Home" asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Имя участника</label>
+                            <input asp-for="Name" class="form-control"
+                                   placeholder="Например, Анна Петрова" />
+                            <span asp-validation-for="Name"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Age" class="form-label">Возраст</label>
+                            <input asp-for="Age" type="number" class="form-control"
+                                   min="14" max="100" />
+                            <span asp-validation-for="Age"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="MembershipType" class="form-label">
+                                Тип абонемента
+                            </label>
+                            <select asp-for="MembershipType" class="form-select">
+                                <option value="">Выберите абонемент</option>
+                                <option value="Стандарт">Стандарт</option>
+                                <option value="Премиум">Премиум</option>
+                                <option value="Студенческий">Студенческий</option>
+                            </select>
+                            <span asp-validation-for="MembershipType"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button type="submit" class="btn btn-primary">
+                                Добавить участника
+                            </button>
+                            <a asp-controller="Home" asp-action="MembersList"
+                               class="btn btn-outline-secondary">
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

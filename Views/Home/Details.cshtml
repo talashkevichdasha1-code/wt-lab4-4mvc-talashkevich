@@ -1,0 +1,39 @@
+```cshtml
+@model wt_lab4_4mvc_talashkevich.Models.Member
+
+@{
+    ViewData["Title"] = "Информация об участнике";
+}
+
+<div class="container py-5">
+    <div class="card shadow-sm rounded-3 mx-auto" style="max-width: 600px;">
+        <div class="card-body p-4">
+            <h1 class="mb-4">Информация об участнике</h1>
+
+            <h3>@Model.Name</h3>
+
+            <p><strong>Номер участника:</strong> @Model.Id</p>
+            <p><strong>Возраст:</strong> @Model.Age лет</p>
+            <p><strong>Абонемент:</strong> @Model.MembershipType</p>
+
+            <p>
+                <strong>Статус:</strong>
+                @if (Model.IsActive)
+                {
+                    <span class="badge bg-success">Активен</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">Неактивен</span>
+                }
+            </p>
+
+            <a asp-controller="Home"
+               asp-action="MembersList"
+               class="btn btn-outline-primary mt-3">
+                Вернуться к участникам
+            </a>
+        </div>
+    </div>
+</div>
+```

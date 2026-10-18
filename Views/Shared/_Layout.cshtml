@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FITNESS CLUB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/wt_lab4_4mvc_talashkevich.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                    FITNESS CLUB
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false"
+                        aria-label="Открыть меню">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home"
+                               asp-action="Index">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home"
+                               asp-action="MembersList">Участники</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home"
+                               asp-action="Create">Добавить участника</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text text-white-50">
+                        Тренируйся. Развивайся. Достигай.
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="py-3">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top bg-white py-3 mt-4">
+        <div class="container text-center text-muted">
+            &copy; 2026 FITNESS CLUB — Спортивный клуб
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+@model List<wt_lab4_4mvc_talashkevich.Models.Member>
+
+@{
+    ViewData["Title"] = "Участники клуба";
+}
+
+<div class="container py-5">
+    
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h1 class="fw-bold">Участники FITNESS CLUB</h1>
+        <p class="text-muted">Наша команда активных и целеустремлённых людей</p>
+    </div>
+
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span class="badge bg-primary fs-6">Всего: @Model.Count</span>
+        <a asp-controller="Home" asp-action="Create"
+           class="btn btn-success">
+            + Добавить участника
+        </a>
+    </div>
+</div>
+
+
+    <div class="row g-4">
+        @foreach (var member in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">@member.Name</h5>
+                        <p class="card-text">Возраст: @member.Age лет</p>
+                        <p class="card-text">
+                            Абонемент: @member.MembershipType
+                        </p>
+
+                        @if (member.IsActive)
+                        {
+                            <span class="badge bg-success">Активен</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Неактивен</span>
+                        }
+                        <a asp-controller="Home"
+   asp-action="Details"
+   asp-route-id="@member.Id"
+   class="btn btn-primary btn-sm mt-3">
+    Подробнее
+</a>
+
+
+<a asp-controller="Home"
+   asp-action="Edit"
+   asp-route-id="@member.Id"
+   class="btn btn-warning btn-sm mt-3 ms-1">
+    Редактировать
+</a>
+
+
+<form asp-controller="Home"
+      asp-action="Delete"
+      asp-route-id="@member.Id"
+      method="post"
+      class="d-inline"
+      onsubmit="return confirm('Вы действительно хотите удалить этого участника?');">
+    <button type="submit" class="btn btn-danger btn-sm mt-3 ms-1">
+        Удалить
+    </button>
+</form>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <a asp-controller="Home" asp-action="Index"
+       class="btn btn-outline-primary mt-4">
+        На главную
+    </a>
+</div>

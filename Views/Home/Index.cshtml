@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="container py-5">
+    <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+        <div class="container-fluid py-4 text-center">
+            <h1 class="display-4 fw-bold">FITNESS CLUB</h1>
+            <p class="fs-4 mt-3">
+                Спортивный клуб для активных и целеустремлённых людей.
+            </p>
+            <p class="text-muted">
+                Тренируйся, развивайся и достигай новых результатов!
+            </p>
+            <a asp-controller="Home" asp-action="MembersList"
+               class="btn btn-primary btn-lg mt-3">
+                Наши участники
+            </a>
+            
+<a asp-controller="Home" asp-action="Create"
+   class="btn btn-success btn-lg mt-3 ms-2">
+    Добавить участника
+</a>
+
+        </div>
+    </div>
+</div>
